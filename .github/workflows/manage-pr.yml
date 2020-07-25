@@ -1,0 +1,16 @@
+name: Manage PR
+on:
+  schedule:
+    - cron: "0 1 * * *"
+
+jobs:
+  run:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - uses: tedd-an/action-manage-pr@master
+      with:
+        target_repo: 'tedd-an/test-bluez'
+        action_token: ${{ secrets.ACTION_TOKEN }}
