@@ -10,7 +10,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - uses: tedd-an/action-sync-repo-bluetooth-next@master
+    - uses: tedd-an/action-sync-repo-bluetooth-next@main
       with:
         target_repo: 'tedd-an/bluetooth-next'
         secret_token: ${{ secrets.ACTION_TOKEN }}
