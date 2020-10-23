@@ -4,10 +4,8 @@ on:
     - cron: "*/30 * * * *"
 
 jobs:
-  run:
-
+  bluez:
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v2
     - uses: tedd-an/action-sync-repo@master
@@ -16,4 +14,14 @@ jobs:
         src_branch: 'master'
         dest_repo: 'tedd-an/test-bluez'
         dest_branch: 'master'
+        secret_token: ${{ secrets.ACTION_TOKEN }}
+
+  bluetooth-next:
+    needs: bluez
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: tedd-an/action-sync-repo-bluetooth-next@main
+      with:
+        target_repo: 'tedd-an/bluetooth-next'
         secret_token: ${{ secrets.ACTION_TOKEN }}
