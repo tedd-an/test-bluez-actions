@@ -1,0 +1,16 @@
+name: Sync Repo Bluetooth Next
+on:
+  schedule:
+    - cron: "15,45 * * * *"
+
+jobs:
+  run:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - uses: tedd-an/action-sync-repo-bluetooth-next@master
+      with:
+        target_repo: 'tedd-an/bluetooth-next'
+        secret_token: ${{ secrets.ACTION_TOKEN }}
