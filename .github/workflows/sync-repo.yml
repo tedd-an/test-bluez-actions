@@ -21,7 +21,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - uses: tedd-an/action-sync-repo-bluetooth-next@main
+    - uses: tedd-an/action-sync-repo@master
       with:
-        target_repo: 'tedd-an/bluetooth-next'
+        src_repo: 'https://git.kernel.org/pub/scm/linux/kernel/git/bluetooth/bluetooth-next.git'
+        dest_repo: 'tedd-an/bluetooth-next'
+        for_upstream_branch: 'for-upstream'
         secret_token: ${{ secrets.ACTION_TOKEN }}
