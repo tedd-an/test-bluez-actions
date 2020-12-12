@@ -1,7 +1,7 @@
 name: Manage PR
 on:
   schedule:
-    - cron: "0 * * * *"
+    - cron: "20 * * * *"
 
 jobs:
   run:
@@ -10,7 +10,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - uses: tedd-an/action-manage-pr@master
+    - uses: tedd-an/action-manage-pr@dev
       with:
         target_repo: 'tedd-an/test-bluez'
         action_token: ${{ secrets.ACTION_TOKEN }}
